@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Scientific Calculator</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet"/>
+ 
+  <!-- Link to our CSS file -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+ 
+  <div class="calc">
+    <div class="calc-label">Scientific Calculator</div>
+ 
+    <!-- DISPLAY -->
+    <div class="display">
+      <div class="expression" id="expression"></div>
+      <div class="result" id="result">0</div>
+    </div>
+ 
+    <!-- DEG / RAD TOGGLE -->
+    <div class="mode-row">
+      <button class="mode-btn active" id="degBtn" onclick="setMode('DEG')">DEG</button>
+      <button class="mode-btn"        id="radBtn" onclick="setMode('RAD')">RAD</button>
+    </div>
+ 
+    <!-- BUTTON GRID -->
+    <div class="grid">
+ 
+      <!-- Row 1: Trig & Log functions -->
+      <button class="fn" onclick="inputFn('sin(')">sin</button>
+      <button class="fn" onclick="inputFn('cos(')">cos</button>
+      <button class="fn" onclick="inputFn('tan(')">tan</button>
+      <button class="fn" onclick="inputFn('log(')">log</button>
+      <button class="fn" onclick="inputFn('ln(')">ln</button>
+ 
+      <!-- Row 2: Root & Power functions -->
+      <button class="fn" onclick="inputFn('sqrt(')">√</button>
+      <button class="fn" onclick="inputFn('cbrt(')">∛</button>
+      <button class="fn" onclick="inputOp('^')">xʸ</button>
+      <button class="fn" onclick="inputFn('abs(')">|x|</button>
+      <button class="fn" onclick="inputOp('!')">n!</button>
+ 
+      <!-- Row 3: Constants & Brackets -->
+      <button class="fn" onclick="inputConst('Math.PI')">π</button>
+      <button class="fn" onclick="inputConst('Math.E')">e</button>
+      <button class="fn" onclick="inputOp('(')">(</button>
+      <button class="fn" onclick="inputOp(')')">)</button>
+      <button class="fn" onclick="inputFn('1/(')">1/x</button>
+ 
+      <!-- Row 4: Clear & Percent -->
+      <button class="clear" onclick="clearAll()">AC</button>
+      <button class="clear" onclick="clearEntry()">CE</button>
+      <button class="fn"    onclick="toggleSign()">+/−</button>
+      <button class="fn"    onclick="inputOp('%')">%</button>
+      <button class="op"    onclick="inputOp('/')">÷</button>
+ 
+      <!-- Row 5: 7 8 9 -->
+      <button class="num" onclick="inputNum('7')">7</button>
+      <button class="num" onclick="inputNum('8')">8</button>
+      <button class="num" onclick="inputNum('9')">9</button>
+      <button class="op"  onclick="inputOp('*')">×</button>
+      <button class="op"  onclick="backspace()">⌫</button>
+ 
+      <!-- Row 6: 4 5 6 -->
+      <button class="num" onclick="inputNum('4')">4</button>
+      <button class="num" onclick="inputNum('5')">5</button>
+      <button class="num" onclick="inputNum('6')">6</button>
+      <button class="op"  onclick="inputOp('-')">−</button>
+      <button class="fn"  onclick="inputFn('2^(')">x²</button>
+ 
+      <!-- Row 7: 1 2 3 -->
+      <button class="num" onclick="inputNum('1')">1</button>
+      <button class="num" onclick="inputNum('2')">2</button>
+      <button class="num" onclick="inputNum('3')">3</button>
+      <button class="op"  onclick="inputOp('+')">+</button>
+      <button class="fn"  onclick="inputFn('10^(')">10ˣ</button>
+ 
+      <!-- Row 8: 0 . ANS = -->
+      <button class="num zero" onclick="inputNum('0')">0</button>
+      <button class="num"      onclick="inputDot()">.</button>
+      <button class="fn"       onclick="inputConst('ans')">ANS</button>
+      <button class="eq"       onclick="calculate()">=</button>
+ 
+    </div><!-- end .grid -->
+ 
+    <!-- HISTORY STRIP -->
+    <div class="history" id="history"></div>
+ 
+  </div><!-- end .calc -->
+ 
+  <!-- Link to our JavaScript file (placed at bottom so HTML loads first) -->
+  <script src="script.js"></script>
+ 
+</body>
+</html>
